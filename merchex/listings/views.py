@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from listings.models import Band
+from listings.models import Band, Listing
 
 
 # Create your views here.
@@ -11,7 +11,7 @@ def hello(request):
                         f"  <li>{bands[0].name}</li>"
                         f"  <li>{bands[1].name}</li>"
                         f"  <li>{bands[2].name}</li>"
-                        f"</ul>")
+                        "</ul>")
 
 
 def about(request):
@@ -19,7 +19,14 @@ def about(request):
 
 
 def listings(request):
-    return HttpResponse("<h1>LISTINGS</h1><p>Voilà nos produits !</p>")
+    listing = Listing.objects.all()
+    return HttpResponse("<h1>LISTINGS</h1><p>Voilà nos produits :</p>"
+                        "<ul>"
+                        f"  <li>{listing[0].title}</li>"
+                        f"  <li>{listing[1].title}</li>"
+                        f"  <li>{listing[2].title}</li>"
+                        f"  <li>{listing[3].title}</li>"
+                        "</ul>")
 
 
 def contact(request):
