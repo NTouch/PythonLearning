@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listings</title>
+</head>
+<body>
+    <h1>Listings Merchex :</h1>
+    <p>Voilà nos produits :</p>
+    <ul>
+        {% for item in listing %}
+        <li>{{ item.title }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
